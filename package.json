@@ -1,0 +1,24 @@
+{
+  "name": "ezpromise",
+  "version": "1.0.0",
+  "description": "Promise without lexical binding requirements",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackpunt/wsbpclient.git"
+  },
+  "keywords": [
+    "Easy",
+    "non-lexical",
+    "Promise"
+  ],
+  "author": "Jeff Peck <jpeckj@gmail.com> (http://thegraid.com/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jackpunt/wsbpclient/issues"
+  },
+  "homepage": "https://github.com/jackpunt/wsbpclient#readme"
+}

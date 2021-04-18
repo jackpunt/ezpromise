@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jackpunt/wsbpclient.git"
+    "url": "git+https://github.com/jackpunt/ezpromise.git"
   },
   "keywords": [
     "Easy",
@@ -20,5 +20,5 @@
   "bugs": {
     "url": "https://github.com/jackpunt/wsbpclient/issues"
   },
-  "homepage": "https://github.com/jackpunt/wsbpclient#readme"
+  "homepage": "https://github.com/jackpunt/ezpromiset#readme"
 }

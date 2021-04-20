@@ -1,13 +1,12 @@
 {
   "name": "@thegraid/ezpromise",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Promise without lexical binding requirements",
   "main": "lib/EzPromise.js",
   "files": [
     "lib"
   ],
   "scripts": {
-
     "test": "jest --runInBand --force-exit --detectOpenHandles --verbose",
     "tsc": "tsc"
   },

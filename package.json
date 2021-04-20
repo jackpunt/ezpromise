@@ -2,9 +2,14 @@
   "name": "ezpromise",
   "version": "1.0.0",
   "description": "Promise without lexical binding requirements",
-  "main": "index.js",
+  "main": "lib/EzPromise.js",
+  "files": [
+    "lib"
+  ],
   "scripts": {
-    "test": "jest"
+
+    "test": "jest --runInBand --force-exit --detectOpenHandles --verbose",
+    "tsc": "tsc"
   },
   "repository": {
     "type": "git",

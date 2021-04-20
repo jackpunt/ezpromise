@@ -1,5 +1,5 @@
 {
-  "name": "ezpromise",
+  "name": "@thegraid/ezpromise",
   "version": "1.0.0",
   "description": "Promise without lexical binding requirements",
   "main": "lib/EzPromise.js",

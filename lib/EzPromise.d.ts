@@ -7,6 +7,6 @@ export declare class EzPromise<T> extends Promise<T> {
     _reason: any;
     _resolved: boolean;
     get resolved(): boolean;
-    get resaon(): any;
+    get reason(): any;
     get value(): T | PromiseLike<T>;
 }

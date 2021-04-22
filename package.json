@@ -8,6 +8,8 @@
   ],
   "scripts": {
     "test": "jest --runInBand --force-exit --detectOpenHandles --verbose",
+    "clean": "rm -f lib/*",
+    "build": "npm run clean; npm run tsc",
     "tsc": "tsc"
   },
   "repository": {

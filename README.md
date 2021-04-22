@@ -1,10 +1,10 @@
 # ezpromise
 Promise without lexical binding requirements
 
-EzPromise<T> methods: .fulfill(value: T)  .reject(reason: any) 
+EzPromise\<T\> methods: .fulfill(value: T)  .reject(reason: any)<br>
 Access fields: .hasResolved: boolean; .value: T; .reason: any
 
-Either .fulfill(value) or .reject(reason) can be called ONCE,
+Either .fulfill(value) or .reject(reason) can be called ONCE,<br>
 at which point .hasResolved === true and no futher alteration can be made.
 
 ````

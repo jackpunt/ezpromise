@@ -35,7 +35,7 @@ export class EzPromise<T> extends Promise<T> {
   _resolved: boolean;
   // readonly:
   get resolved() { return this._resolved }
-  get resaon() { return this._reason }
+  get reason() { return this._reason }
   get value() { return this._value }
 }
 // https://gist.github.com/oliverfoster/00897f4552cef64653ef14d8b26338a6

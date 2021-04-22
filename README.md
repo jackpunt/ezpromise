@@ -2,7 +2,7 @@
 Promise without lexical binding requirements
 
 Constuctor: new EzPromise()\<T\><br>
-Note: do _not_ supply any argument for: (ful, rej) => {...}
+Note: do _not_ supply any argument for: (fil, rej) => {...}
 
 EzPromise\<T\> methods: .fulfill(value: T)  .reject(reason: any)<br>
 Access fields: .hasResolved: boolean; .value: T; .reason: any

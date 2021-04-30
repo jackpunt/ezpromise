@@ -4,6 +4,7 @@ export class EzPromise<T> extends Promise<T> {
   static get [Symbol.species]() {
     return Promise;
   }
+  /** for documented operation do NOT supply an argument */
   constructor(def = (res, rej) => { }) {
     let fulfill: (value: T | PromiseLike<T>) => void
     let reject: (reason?: any) => void;
@@ -27,15 +28,29 @@ export class EzPromise<T> extends Promise<T> {
       }
     }
   }
+  /** fulfill promise with value. */
   fulfill: (value: T | PromiseLike<T>) => void;
+  /** reject promise with reason. */
   reject: (value: any) => void;
+  /** set resolution handlers. 
+   * 
+   * if you supply on_catch, then on_rej must be valid.
+   */
+  handle(on_fil: (value: T) => void, on_rej: (reason: any) => void, on_catch?: (reason: any) => void, on_fin?: () => void) {
+    this.then(on_fil, on_rej)
+    if (!!on_catch) this.catch(on_catch)
+    if (!!on_fin) this.finally(on_fin)
+  }
   // private: set only once
   _value: T | PromiseLike<T>;
   _reason: any;
   _resolved: boolean;
   // readonly:
+  /** true if promise has resolved. */
   get resolved() { return this._resolved }
+  /** defined if promise was rejected. */
   get reason() { return this._reason }
+  /** defined if promise was fulfilled */
   get value() { return this._value }
 }
 // https://gist.github.com/oliverfoster/00897f4552cef64653ef14d8b26338a6

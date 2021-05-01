@@ -1,7 +1,7 @@
 export declare class EzPromise<T> extends Promise<T> {
     static get [Symbol.species](): PromiseConstructor;
     /** for documented operation do NOT supply an argument */
-    constructor(def?: (res: any, rej: any) => void);
+    constructor(def?: (fil: (value: T | PromiseLike<T>) => void, rej: (r?: any) => void) => void);
     /** fulfill promise with value. */
     fulfill: (value: T | PromiseLike<T>) => void;
     /** reject promise with reason. */

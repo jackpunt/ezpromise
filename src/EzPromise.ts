@@ -5,7 +5,7 @@ export class EzPromise<T> extends Promise<T> {
     return Promise;
   }
   /** for documented operation do NOT supply an argument */
-  constructor(def = (res, rej) => { }) {
+  constructor(def = (fil: (value: T | PromiseLike<T>) => void, rej: (r?: any) => void) => { }) {
     let fulfill: (value: T | PromiseLike<T>) => void
     let reject: (reason?: any) => void;
     super((fil, rej) => {

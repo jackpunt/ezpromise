@@ -5,36 +5,39 @@ export class EzPromise<T> extends Promise<T> {
     return Promise;
   }
   /** for documented operation do NOT supply an argument */
-  constructor(def = (fil: (value: T | PromiseLike<T>) => void, rej: (reason?: any) => void) => { }) {
+  constructor(def: (fil: (value: T | PromiseLike<T>) => void, rej: (reason?: any) => void) => void
+   = (fil, rej) => {}) {
     let fulfill: (value: T | PromiseLike<T>) => void
     let reject: (reason?: any) => void;
     super((fil, rej) => {
-      def(fil, rej);
+      def(fil, rej); // on the chance that someone supplies an executor
       fulfill = fil;
       reject = rej;
     });
-    this.fulfill = (value: T | PromiseLike<T>) => {
+    this.fulfill = (value: T | PromiseLike<T>): this => {
       if (!this._resolved) {
         this._value = value;
         this._resolved = true;
         fulfill(value)
+        return this
       }
     }
-    this.reject = (reason: any) => {
+    this.reject = (reason: any): this => {
       if (!this._resolved) {
         this._reason = reason;
         this._resolved = true;
         reject(reason)
+        return this
       }
     }
   }
   /** fulfill promise with value. */
-  fulfill: (value: T | PromiseLike<T>) => void;
+  fulfill: (value: T | PromiseLike<T>) => this;
   /** reject promise with reason. */
-  reject: (value: any) => void;
-  /** set resolution handlers. 
-   * 
-   * if you supply on_catch, then on_rej must be valid.
+  reject: (value: any) => this;
+  /** 
+   * set resolution handlers.  
+   * If you supply on_catch, then on_rej must be valid.
    */
   handle(on_fil: (value: T) => void, on_rej: (reason: any) => void, on_catch?: (reason: any) => void, on_fin?: () => void) {
     this.then(on_fil, on_rej)

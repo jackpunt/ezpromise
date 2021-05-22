@@ -1,6 +1,6 @@
 {
   "name": "@thegraid/ezpromise",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Promise without lexical binding requirements",
   "main": "lib/EzPromise.js",
   "files": [

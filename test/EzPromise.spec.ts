@@ -96,3 +96,41 @@ test("promise.handle fin", done => {
   })
   zpromise.fulfill(value)
 })
+
+test("promise.whenFulfilled fil", done => {
+  let zpromise = new EzPromise<number>()
+  let onRej = (reason: any) => {
+    expect(reason).toBe("not invoked")
+    done();
+  }
+  let val = 5
+  let whenDone = false
+  zpromise.then((n) => {
+    expect(whenDone).toBe(true) // expect wheResolved to run first
+    done();
+  }, onRej)
+  zpromise.fulfill(val)
+  let rv =zpromise.whenResolved((val) => { whenDone = true}, onRej)
+  expect(whenDone).toBe(true) // expect whenResolved has already run
+  expect(rv).toEqual(zpromise)
+})
+test("promise.whenFulfilled rej", done => {
+  let val = 5
+  let whenDone = false
+  let zpromise = new EzPromise<number>()
+  let onFil = (value: number | PromiseLike<number>) => {
+    fail();
+  }
+  let onRej = (reason: any) => {
+    expect(reason).toBe("invoked")
+    whenDone = true
+  }
+  zpromise.then(onFil, (reason: any) => {
+    expect(whenDone).toBe(true) // expect whenResolved has already run
+    done();
+  })
+  zpromise.reject("invoked")
+  let rv =zpromise.whenResolved(onFil, onRej)
+  expect(whenDone).toBe(true) // expect whenResolved has already run
+  expect(rv).toEqual(zpromise)
+})

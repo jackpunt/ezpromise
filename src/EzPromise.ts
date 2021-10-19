@@ -44,6 +44,7 @@ export class EzPromise<T> extends Promise<T> {
         return this
       }
     }
+    this.catch((reason: any) => null) // a default, no-nothing catch. User can override.
   }
   /** fulfill promise with value. */
   fulfill: (value: T | PromiseLike<T>) => this;

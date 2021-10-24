@@ -24,3 +24,5 @@ exp2.reject("rejected")
 console.log("ezp2 reason =", ezp2.reason)
 
 ````
+
+published in npm registery: @thegraid/ezpromise

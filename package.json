@@ -1,6 +1,6 @@
 {
   "name": "@thegraid/ezpromise",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Promise without lexical binding requirements",
   "main": "lib/EzPromise.js",
   "type": "module",
@@ -11,6 +11,7 @@
     "test": "jest --runInBand --force-exit --detectOpenHandles --verbose",
     "clean": "rm -f lib/*",
     "build": "npm run clean; npm run tsc",
+    "tgz": "rm -rf *.tgz; npm pack",
     "tsc": "tsc"
   },
   "repository": {
